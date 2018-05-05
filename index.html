@@ -5,6 +5,7 @@
 <title>无标题文档</title>
 <link rel="stylesheet" type="text/css" href="index.css"/>
 </head>
+<script src="move-1.0.2.js"></script>
 
 <body>
 	<div id="head">
@@ -33,8 +34,62 @@
     </div>
     
     <div id="nav1">
-    	<div class="nav1-banner"></div>
+    	<div class="nav1-banner">
+            <ul id="imgList">
+                <!-- <li><img src="images/index_03.jpg" alt=""></li>
+                <li><img src="images/index_03.jpg" alt=""></li>
+                <li><img src="images/index_03.jpg" alt=""></li>
+                <li><img src="images/index_03.jpg" alt=""></li> -->
+                
+                <li><img src="http://img.zcool.cn/community/01fed25aec18e9a801207fa1fc573b.png@1380w" alt=""></li>
+                <li><img src="http://img.zcool.cn/community/01beb35aec18fba801207fa15b88be.png@1380w" alt=""></li>
+                <li><img src="http://img.zcool.cn/community/0104735aec190da801207fa17ec667.png@1380w" alt=""></li>
+                <li><img src="http://img.zcool.cn/community/0136385aec1921a801219b7fd9f04e.png@1380w" alt=""></li>
+                <li><img src="http://img.zcool.cn/community/010ce75aebbcbea801207fa119d8dd.jpg@1380w" alt=""></li>
+                <li><img src="http://img.zcool.cn/community/01799e5aebbce0a801207fa15f93fa.jpg@1380w" alt=""></li>
+            </ul>
+        </div>
     </div>
+    <script>
+        var aImgList=document.getElementById("imgList").children;
+        var index=0;
+        setInterval(function(){
+            var hidden,show;
+            hidden=index;
+            if(index==aImgList.length-1){
+                index=0;
+                show=index;
+            }else{
+                index++;
+                show=index;
+            }
+            console.log(hidden,show);
+            for(var i=0;i<aImgList.length-1;i++){
+                aImgList[i].style.zIndex=0;
+            }
+            aImgList[hidden].style.zIndex=1;
+            aImgList[show].style.zIndex=2;
+
+            aImgList[hidden].style.left=0;
+            aImgList[show].style.left=1130+"px";
+            
+            move(aImgList[hidden],{
+                    left:-1130
+            });
+            move(aImgList[show],{
+                    left:0
+            });
+            
+            // move(aImgList[hidden],{
+            //     left:-1130
+            // },function(){
+            //     move(aImgList[show],{
+            //         left:0
+            //     });
+            // });
+           
+        },2000);
+    </script>
      <div id="nav2">
     	<div class="nav2-banner">
         	<ul>
